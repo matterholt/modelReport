@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import ModelDescription from "./components/ModelDescription";
 import AnalysisSummary from "./components/AnalysisSummary";
+import ResultTable from "./components/ResultTable";
 //import ResultsChart from "./ResultsChart";
 
 function App() {
@@ -13,7 +14,9 @@ function App() {
     <div className="App">
       <Header verRev="V2R00" analysis="Stiffness Analysis" />
       <ModelDescription />
+      <hr />
       <AnalysisSummary />
+      <ResultTable />
     </div>
   );
 }
