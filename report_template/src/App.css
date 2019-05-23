@@ -1,6 +1,18 @@
+root {
+  --temp_white: #E7ECEF;
+  --temp_green: #095256;
+  --temp_medBlue: #1C6E8C;
+  --temp_darkBlue: #1D2D44;
+  --temp_lghBlue: #6096BA;
+
+
+}
+
+
 .App {
-  text-align: center;
   display: grid;
+  background: #E7ECEF;
+  justify-content: center;
 }
 
 .App-logo {

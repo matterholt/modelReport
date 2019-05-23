@@ -1,26 +1,85 @@
 import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+/*
+Table with the full stiffness comparison to base and target
 
-// componenet list
-// target column
-// base column
-// current/ cm column
-const table = css`
-  display: grid;
-  background: lightgrey;
-  grid-template-columns: repeat(7, 1fr);
+
+*/
+const tableStyle = css`
+  margin-top: 1rem;
+  width: 90vw;
+  td {
+    border: 1px solid black;
+    padding: 0.25rem;
+  }
+  th {
+    border: 1px solid black;
+    background: #6096ba;
+    padding: 0.5rem;
+  }
 `;
+
+/// build components based on rows.
+function findRowData() {
+  // filter through json to find the row data for target,base, and cm
+}
+
+function percentToTarget() {
+  // compare to the target validate if result are above or below target
+  // Red -> <100%, Green -> >100%
+}
+
+function SuspensionValues(params) {
+  // If we pass an object into component based on the json file.
+  // json would be based on rows, So Sus. point and direction of load
+  return (
+    <tr>
+      <td>UAA</td>
+      <td>X</td>
+      <td>12 </td>
+      <td>21</td>
+      <td>180%</td>
+      <td>24</td>
+      <td> 188% </td>
+    </tr>
+  );
+}
+
 function ResultTable() {
   return (
-    <div css={table}>
-      <h3>LOC.</h3>
-      <h3>Dir</h3>
-      <h3>Target</h3>
-      <h3>Base kN/mm</h3>
-      <h3>Base %Target</h3>
-      <h3>V02R00 kN/mm</h3>
-      <h3>V02R00 %Target</h3>
+    <div>
+      <table css={tableStyle}>
+        <tr>
+          <th colspan="3">Base model</th>
+          <th colspan="2">N/A</th>
+          <th colspan="2">v00r00</th>
+        </tr>
+        <tr>
+          <td colspan="3">model Description</td>
+          <td colspan="2"> Improved shape of side member</td>
+          <td colspan="2">Increased welding ton bracket lower</td>
+        </tr>
+        <tr>
+          <th>Subframe model</th>
+          <th> </th>
+          <th> target </th>
+          <th> base </th>
+          <th> % target </th>
+          <th> name </th>
+          <th> % target </th>
+        </tr>
+        <tr>
+          <td>Loc.</td>
+          <td>Dir.</td>
+          <td>kN/mm </td>
+          <td>kN/mm </td>
+          <td />
+          <td>kN/mm </td>
+          <td> </td>
+        </tr>
+        <SuspensionValues />
+      </table>
     </div>
   );
 }

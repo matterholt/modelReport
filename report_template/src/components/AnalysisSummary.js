@@ -1,17 +1,22 @@
 import React from "react";
-import DataFile from "./result_data/data.json";
+/* 
+quick rundown on what happen to the most important sus point
+*/
 
-const targets = DataFile.target.stiffness;
-const base_model = DataFile.base.stiffness;
-const cm_model = DataFile.cm.stiffness;
-
-console.log(targets);
+function ValidateResults() {
+  return (
+    <li>
+      Uaa <span>X :</span> <span>+1 k/N</span>
+    </li>
+  );
+}
 
 function AnalysisSummary() {
   return (
-    <div>
-      <h1>Performance review</h1>
-    </div>
+    <ul>
+      <h3>Model Summary</h3>
+      <ValidateResults />
+    </ul>
   );
 }
 
