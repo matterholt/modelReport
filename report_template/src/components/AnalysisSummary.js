@@ -1,7 +1,14 @@
 import React from "react";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 /* 
 quick rundown on what happen to the most important sus point
 */
+
+const summaryStyle = css`
+  grid-column: 2;
+  grid-row: 3;
+`;
 
 function ValidateResults() {
   return (
@@ -13,8 +20,8 @@ function ValidateResults() {
 
 function AnalysisSummary() {
   return (
-    <ul>
-      <h3>Model Summary</h3>
+    <ul css={summaryStyle}>
+      <h3>Analysis Summary</h3>
       <ValidateResults />
     </ul>
   );

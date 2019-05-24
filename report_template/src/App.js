@@ -10,7 +10,7 @@ import WeightInfo from "./components/WeightInfo";
 import AnalysisSummary from "./components/AnalysisSummary";
 import ModelImg from "./components/ModelImg";
 
-// data json for results
+// data json for results __ use this as MOCK data
 //import DataFile from "./result_data/data.json";
 
 function App() {

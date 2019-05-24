@@ -12,7 +12,8 @@ root {
 .App {
   display: grid;
   background: #E7ECEF;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+
 }
 
 .App-logo {

@@ -3,6 +3,8 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const head_title = css`
+  grid-column: 1/4;
+  grid-row: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
