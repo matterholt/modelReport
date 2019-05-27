@@ -3,7 +3,7 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const modelImage = css`
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 3;
 `;
 

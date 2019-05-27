@@ -7,10 +7,11 @@ Table with the full stiffness comparison to base and target
 
 */
 const tableStyle = css`
-  grid-column: 1/4;
+  grid-column: 2/5;
   grid-row: 2;
-  margin: 2rem;
-  width: 90vw;
+
+  align-self: center;
+  justify-self: center;
   td {
     border: 1px solid black;
     padding: 0.25rem;

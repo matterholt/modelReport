@@ -3,7 +3,7 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const weightStyle = css`
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 3;
   border: 1px solid black;
   box-shadow: 1px 2px 2px black;

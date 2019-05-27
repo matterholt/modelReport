@@ -6,7 +6,7 @@ quick rundown on what happen to the most important sus point
 */
 
 const summaryStyle = css`
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 3;
 `;
 

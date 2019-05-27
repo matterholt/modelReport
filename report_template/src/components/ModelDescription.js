@@ -3,7 +3,7 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const mdlDescpt = css`
-  grid-column: 2;
+  grid-column: 1/5;
   grid-row: 5;
   border: 2px solid #357266;
   background: #e7ecef;
