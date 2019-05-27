@@ -9,9 +9,9 @@ Table with the full stiffness comparison to base and target
 const tableStyle = css`
   grid-column: 2/5;
   grid-row: 2;
+  place-self: center stretch;
+  box-shadow: 5px 6px 10px grey;
 
-  align-self: center;
-  justify-self: center;
   td {
     border: 1px solid black;
     padding: 0.25rem;

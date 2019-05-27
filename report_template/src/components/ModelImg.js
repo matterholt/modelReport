@@ -3,14 +3,11 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const modelImage = css`
-  grid-column: 4;
+  grid-column: 3;
   grid-row: 3;
+  justify-self: center;
 `;
 
 export default function ModelImg() {
-  return (
-    <a css={modelImage} href="https://placeholder.com">
-      <img src="https://via.placeholder.com/300" />
-    </a>
-  );
+  return <img css={modelImage} src="https://via.placeholder.com/300" />;
 }

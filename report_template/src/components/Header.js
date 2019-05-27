@@ -3,17 +3,18 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 
 const head_title = css`
-  grid-column: 1/5;
+  grid-column: 2/5;
   grid-row: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   text-align: center;
+  align-items: center;
 `;
 const head_analysisTitle = css`
   background: linear-gradient(#e7ecef, #6096ba);
-  padding: 1rem;
   box-shadow: 5px 6px 10px grey;
+  padding: 1rem 3rem;
 `;
 const head_modelVR = css`
   background: linear-gradient(#e7ecef, #f96d00);

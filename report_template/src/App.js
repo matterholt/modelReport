@@ -4,7 +4,7 @@ import "./App.css";
 
 ////   Components
 import Header from "./components/Header";
-import ModelDescription from "./components/ModelDescription";
+import Footer from "./components/Footer";
 import ResultTable from "./components/ResultTable";
 import WeightInfo from "./components/WeightInfo";
 import AnalysisSummary from "./components/AnalysisSummary";
@@ -21,8 +21,7 @@ function App() {
       <WeightInfo />
       <AnalysisSummary />
       <ModelImg />
-
-      <ModelDescription />
+      <Footer />
     </div>
   );
 }
