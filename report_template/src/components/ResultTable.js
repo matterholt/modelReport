@@ -52,35 +52,39 @@ function SuspensionValues(params) {
 function ResultTable() {
   return (
     <table css={tableStyle}>
-      <tr>
-        <th colspan="3">Base model</th>
-        <th colspan="2">N/A</th>
-        <th colspan="2">v00r00</th>
-      </tr>
-      <tr>
-        <td colspan="3">model Description</td>
-        <td colspan="2"> Improved shape of side member</td>
-        <td colspan="2">Increased welding ton bracket lower</td>
-      </tr>
-      <tr>
-        <th>Subframe model</th>
-        <th> </th>
-        <th> target </th>
-        <th> base </th>
-        <th> % target </th>
-        <th> name </th>
-        <th> % target </th>
-      </tr>
-      <tr>
-        <td>Loc.</td>
-        <td>Dir.</td>
-        <td>kN/mm </td>
-        <td>kN/mm </td>
-        <td />
-        <td>kN/mm </td>
-        <td> </td>
-      </tr>
-      <SuspensionValues />
+      <tbody>
+        <tr>
+          <th colSpan="3">Base model</th>
+          <th colSpan="2">N/A</th>
+          <th colSpan="2">v00r00</th>
+        </tr>
+        <tr>
+          <td colSpan="3">model Description</td>
+          <td colSpan="2"> Improved shape of side member</td>
+          <td colSpan="2">Increased welding ton bracket lower</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th>Subframe model</th>
+          <th> </th>
+          <th> target </th>
+          <th> base </th>
+          <th> % target </th>
+          <th> name </th>
+          <th> % target </th>
+        </tr>
+        <tr>
+          <td>Loc.</td>
+          <td>Dir.</td>
+          <td>kN/mm </td>
+          <td>kN/mm </td>
+          <td />
+          <td>kN/mm </td>
+          <td> </td>
+        </tr>
+        <SuspensionValues />
+      </tbody>
     </table>
   );
 }
