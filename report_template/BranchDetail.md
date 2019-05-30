@@ -24,6 +24,10 @@ Plans also include improving the UX and UI of the App. Areas of concerns are lay
 
 5. Data compiled in table create a summary page. By showing if the results have decreased.
 
+6. Add test for UI (react-testing-library or jest)
+
+7. Adding react props.type
+
 ---
 
 ## Build plans for UX and UI

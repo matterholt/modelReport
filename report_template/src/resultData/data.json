@@ -1,6 +1,6 @@
 [{
-    "modelNum": "Target",
-    "info" :{
+    "modelNum": "target",
+    "info": {
         "partUpdate": [],
         "modelBasedOn": "",
         "weightKg": 25
@@ -36,7 +36,7 @@
     }
 }, {
     "modelNum": "V00R00",
-    "info" :{
+    "info": {
         "partUpdate": [],
         "modelBasedOn": "",
         "weightKg": 26
@@ -72,10 +72,46 @@
     }
 }, {
     "modelNum": "V01R00",
-    "info" :{
+    "info": {
         "partUpdate": [],
         "modelBasedOn": "V00R00",
         "weightKg": 22.6
+    },
+    "results": {
+        "stiffness": {
+            "UAA": {
+                "x": 5,
+                "y": 15,
+                "z": 10
+            },
+            "LAA": {
+                "x": 7,
+                "y": 19,
+                "z": 20
+            },
+            "LAB": {
+                "x": 10,
+                "y": 31,
+                "z": 10
+            },
+            "CNTL": {
+                "x": 7,
+                "y": 25,
+                "z": 8
+            },
+            "Stabi": {
+                "x": 16,
+                "y": 14,
+                "z": 17
+            }
+        }
+    }
+}, {
+    "modelNum": "V02R00",
+    "info": {
+        "partUpdate": [],
+        "modelBasedOn": "V00R00",
+        "weightKg": 20.6
     },
     "results": {
         "stiffness": {
