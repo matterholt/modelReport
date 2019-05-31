@@ -20,7 +20,7 @@ function dataValidation(cmName, odj) {
   );
 
   const dataToValidate = checkValueAll.concat(baseModelObj);
-  console.log(dataToValidate);
+  return dataToValidate;
 }
 
 export { dataValidation };

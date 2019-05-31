@@ -12,11 +12,15 @@ Plans also include improving the UX and UI of the App. Areas of concerns are lay
 
 1. In the App component. Bring data from json file and pass it to components.
 
+   - filter the json, target object, find the model object that will be need to be reported on. Use data to find Base
+
 2. Pass analysis type and name of model into the header component.
 
 3. From json extract weight and calculate where the cm model is at on weight.
 
 4. Get all displacement value (Target, Previous model, Cm model) from json.
+
+   - compile the load point with the direction, constants are x,y,z
 
    - Target values should never change
 

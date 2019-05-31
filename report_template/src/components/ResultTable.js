@@ -23,19 +23,8 @@ const tableStyle = css`
   }
 `;
 
-/// build components based on rows.
-function findRowData() {
-  // filter through json to find the row data for target,base, and cm
-}
-
-function percentToTarget() {
-  // compare to the target validate if result are above or below target
-  // Red -> <100%, Green -> >100%
-}
-
-function SuspensionValues(params) {
-  // If we pass an object into component based on the json file.
-  // json would be based on rows, So Sus. point and direction of load
+function SuspensionValues() {
+  // In each row will contain
   return (
     <tr>
       <td>UAA</td>
