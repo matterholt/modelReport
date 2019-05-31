@@ -18,22 +18,28 @@ const weightStyle = css`
     line-height: 2rem;
   }
 `;
-const WeightCal = () => {
+
+const WeightCal = (props) => {
+  let [target,base,cm] = props.weightData
+  let howCloseToTarget = cm - target
+
   return (
     <ul>
-      <li>Target Weight 20kg.</li>
-      <li>Current Weight 25kg.</li>
-      <li>Weight Target +5kg</li>
+      <li>Target Weight: {target} kg.</li>
+      <li>Current Weight: {cm} kg.</li>
+      <li style={{color:"green"}}>Weight Target: {howCloseToTarget.toFixed(2)} kg.</li>
     </ul>
   );
-};
+  };
 
 // pass the weight data from json
-export default function WeightInfo() {
+export default function WeightInfo(props) {
+  const  weightValues = props.data
   return (
     <div css={weightStyle}>
       <h3>Weight Status (kg)</h3>
-      <WeightCal />
+      <WeightCal weightData = {weightValues}
+      />
     </div>
   );
 }
