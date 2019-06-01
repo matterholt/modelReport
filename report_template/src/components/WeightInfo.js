@@ -1,4 +1,3 @@
-import React from "react";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
@@ -19,27 +18,28 @@ const weightStyle = css`
   }
 `;
 
-const WeightCal = (props) => {
-  let [target,base,cm] = props.weightData
-  let howCloseToTarget = cm - target
+const WeightCal = props => {
+  let [target, base, cm] = props.weightData;
+  let howCloseToTarget = cm - target;
 
   return (
     <ul>
       <li>Target Weight: {target} kg.</li>
       <li>Current Weight: {cm} kg.</li>
-      <li style={{color:"green"}}>Weight Target: {howCloseToTarget.toFixed(2)} kg.</li>
+      <li style={{ color: "green" }}>
+        Weight Target: {howCloseToTarget.toFixed(2)} kg.
+      </li>
     </ul>
   );
-  };
+};
 
 // pass the weight data from json
 export default function WeightInfo(props) {
-  const  weightValues = props.data
+  const weightValues = props.data;
   return (
     <div css={weightStyle}>
       <h3>Weight Status (kg)</h3>
-      <WeightCal weightData = {weightValues}
-      />
+      <WeightCal weightData={weightValues} />
     </div>
   );
 }

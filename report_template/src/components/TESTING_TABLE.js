@@ -24,23 +24,19 @@ const tableStyle = css`
   }
 `;
 
-/// build components based on rows.
-function findRowData() {
-  // filter through json to find the row data for target,base, and cm
-}
-
 function percentToTarget() {
   // compare to the target validate if result are above or below target
   // Red -> <100%, Green -> >100%
 }
 
-function SuspensionValues({ loadDir, loadPoint }) {
+function SuspensionValues({ columnOneData }) {
   // creating row by row by map in map, there is a lot of column and this might not be the best way
   // so creating a target array would just have to map it into the tr not nesting map()
   // need to think about its
+  const [loadPoint, loadDir] = columnOneData;
   const itemInRow = loadPoint.map(load =>
     loadDir.map((dir, index) => (
-      <tr>
+      <tr key={index}>
         <td>{load}</td>
         <td>{dir}</td>
       </tr>
@@ -51,16 +47,29 @@ function SuspensionValues({ loadDir, loadPoint }) {
   return <>{itemInRow}</>;
 }
 
-function TestingTable({ loadDir, loadPoint }) {
+function TestingTable({ rowHeading }) {
   return (
     <table css={tableStyle}>
       <tbody>
         <tr>
-          <th>Load Point</th>
-          <th>Dir.</th>
+          <th>Subframe model</th>
+          <th> </th>
+          <th> target </th>
+          <th> base </th>
+          <th> % target </th>
+          <th> name </th>
+          <th> % target </th>
         </tr>
-
-        <SuspensionValues loadDir={loadDir} loadPoint={loadPoint} />
+        <tr>
+          <td>Loc.</td>
+          <td>Dir.</td>
+          <td>kN/mm </td>
+          <td>kN/mm </td>
+          <td />
+          <td>kN/mm </td>
+          <td> </td>
+        </tr>
+        <SuspensionValues columnOneData={rowHeading} />
       </tbody>
     </table>
   );
