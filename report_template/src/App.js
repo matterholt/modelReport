@@ -10,7 +10,8 @@ import WeightInfo from "./components/WeightInfo";
 import AnalysisSummary from "./components/AnalysisSummary";
 import ModelImg from "./components/ModelImg";
 import TestingTable from "./components/TESTING_TABLE";
-// logic functions
+import ModelDescription from "./components/ModelDescription";
+// logic functions ////////////////////////////////////////////////
 import { dataValidation } from "./logicFunc/validationModel";
 
 // data json for results __ use this as MOCK data
@@ -20,20 +21,38 @@ import DataFile from "./resultData/data.json";
 const cmValidation = "V01R00"; // dropdown or input
 const analysisType = "Stiffness";
 
-// array of the CM model that is model to be reported on [target, cm_model, base]
+// [target, cm_model, base]
 const validationModel = dataValidation(cmValidation, DataFile);
-//console.log(validationModel);
+
 // list to find all model that are in json, use as a dropdown for the future
 const listOfModels = DataFile.map(data => data.modelNum);
-//console.log(listOfModels);
-//Issue is when the array is longer than 3, will need to how to use the reference to the cm model how can take.
+
 // Have to get the index of the matching current model name
 const weightArray = DataFile.map(data => data.info.weightKg);
 
-const loadDirection = ["x", "y", "z"];
-const pointLoadApplied = validationModel[0].results.stiffness;
-const loadPointsKeys = Object.keys(pointLoadApplied);
+function loadPointLocation(data, index) {
+  // an array of name where the loads are being applied.
+  const pointLoadApplied = data[index].results.stiffness;
+  const loadPointsKeys = Object.keys(pointLoadApplied);
+  return loadPointsKeys;
+}
 
+function rowList(data) {
+  // gets the data for the first column in table, array of load point, array of directions
+  const loadDirection = ["x", "y", "z"];
+  const loadPointsKeys = loadPointLocation(data, 0);
+  const LoadwithPoint = [loadPointsKeys, loadDirection];
+  return LoadwithPoint;
+}
+function listResult(data) {
+  // returns an array of stiffness displacement values for the model pass into the function
+  const LoadPoints = loadPointLocation(data, 0);
+
+  return LoadPoints;
+}
+const targetValue = listResult(validationModel);
+console.log(targetValue);
+//
 ////////////////////////////////////////////////////////////
 
 const CheckValue = () => {
@@ -67,7 +86,8 @@ function App() {
       <ModelImg />
       <Footer />
       <CheckValue />
-      <TestingTable loadDir={loadDirection} loadPoint={loadPointsKeys} />
+      <ModelDescription />
+      <TestingTable rowHeading={rowList(validationModel)} />
     </div>
   );
 }
