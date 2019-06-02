@@ -13,9 +13,12 @@ import TestingTable from "./components/TESTING_TABLE";
 import ModelDescription from "./components/ModelDescription";
 // logic functions ////////////////////////////////////////////////
 import { dataValidation } from "./logicFunc/validationModel";
+import { rowList } from "./logicFunc/rowHeading";
 
 // data json for results __ use this as MOCK data
 import DataFile from "./resultData/data.json";
+// list to find all model that are in json, use as a dropdown for the future
+const listOfModels = DataFile.map(data => data.modelNum);
 
 // Model to be Validation
 const cmValidation = "V01R00"; // dropdown or input
@@ -23,35 +26,30 @@ const analysisType = "Stiffness";
 
 // [target, cm_model, base]
 const validationModel = dataValidation(cmValidation, DataFile);
+const [target, base, cm] = validationModel;
 
-// list to find all model that are in json, use as a dropdown for the future
-const listOfModels = DataFile.map(data => data.modelNum);
-
-// Have to get the index of the matching current model name
-const weightArray = DataFile.map(data => data.info.weightKg);
-
-function loadPointLocation(data, index) {
-  // an array of name where the loads are being applied.
-  const pointLoadApplied = data[index].results.stiffness;
-  const loadPointsKeys = Object.keys(pointLoadApplied);
-  return loadPointsKeys;
+function resultLocation(data) {
+  const pointLoadApplied = data.results.stiffness;
+  return pointLoadApplied;
 }
-
-function rowList(data) {
-  // gets the data for the first column in table, array of load point, array of directions
-  const loadDirection = ["x", "y", "z"];
-  const loadPointsKeys = loadPointLocation(data, 0);
-  const LoadwithPoint = [loadPointsKeys, loadDirection];
-  return LoadwithPoint;
-}
+/*
 function listResult(data) {
   // returns an array of stiffness displacement values for the model pass into the function
-  const LoadPoints = loadPointLocation(data, 0);
-
-  return LoadPoints;
+  const LoadPoints = loadPointLocation(data);
+  const pointLoadApplied = data.map(model => model.results.stiffness);
+  const direction = ["x", "y", "z"];
+  // map on map on map....
+  const results = pointLoadApplied.map(analysis =>
+    LoadPoints.map(part => direction.map(dir => analysis[part][dir]))
+  );
+  return results;
 }
-const targetValue = listResult(validationModel);
-console.log(targetValue);
+*/
+const rowHeadingList = resultLocation(target);
+const loadPointKeys = Object.keys(rowHeadingList);
+const loadDirections = ["x", "y", "z"];
+const rowHeading = rowList(loadPointKeys, loadDirections);
+console.log(rowHeading);
 //
 ////////////////////////////////////////////////////////////
 
@@ -81,13 +79,12 @@ function App() {
     <div className="App">
       <Header verRev={cmValidation} analysis={analysisType} />
       <ResultTable />
-      <WeightInfo data={weightArray} />
+      <WeightInfo />
       <AnalysisSummary />
       <ModelImg />
       <Footer />
       <CheckValue />
       <ModelDescription />
-      <TestingTable rowHeading={rowList(validationModel)} />
     </div>
   );
 }
