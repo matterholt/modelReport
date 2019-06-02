@@ -33,12 +33,11 @@ function SuspensionValues({ columnOneData }) {
   // creating row by row by map in map, there is a lot of column and this might not be the best way
   // so creating a target array would just have to map it into the tr not nesting map()
   // need to think about its
-  const [loadPoint, loadDir] = columnOneData;
-  const itemInRow = loadPoint.map(load =>
-    loadDir.map((dir, index) => (
+  const itemInRow = columnOneData.map((load, index) =>
+    load.map(x => (
       <tr key={index}>
-        <td>{load}</td>
-        <td>{dir}</td>
+        <td>{x[0]}</td>
+        <td>{x[1]}</td>
       </tr>
     ))
   );
@@ -69,6 +68,7 @@ function TestingTable({ rowHeading }) {
           <td>kN/mm </td>
           <td> </td>
         </tr>
+
         <SuspensionValues columnOneData={rowHeading} />
       </tbody>
     </table>

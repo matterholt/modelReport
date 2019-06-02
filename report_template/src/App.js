@@ -85,6 +85,7 @@ function App() {
       <Footer />
       <CheckValue />
       <ModelDescription />
+      <TestingTable rowHeading={rowHeading} />
     </div>
   );
 }

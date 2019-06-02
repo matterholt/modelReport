@@ -1,3 +1,15 @@
+/**
+ * filter through the completed json file looking for the model that are requested
+ *
+ * returns an array of objects of model to be validated and reported
+ *
+ * can be improved
+ *
+ *
+ * @param {*} cmName //not sure , look into
+ * @param {*} odj
+ */
+
 function dataValidation(cmName, odj) {
   // use filter in one shot and only return one array.
   function gettingOneArray(x) {
