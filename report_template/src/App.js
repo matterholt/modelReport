@@ -14,6 +14,7 @@ import ModelDescription from "./components/ModelDescription";
 // logic functions ////////////////////////////////////////////////
 import { dataValidation } from "./logicFunc/validationModel";
 import { rowList } from "./logicFunc/rowHeading";
+import { listResult } from "./logicFunc/valueDisList";
 
 // data json for results __ use this as MOCK data
 import DataFile from "./resultData/data.json";
@@ -32,24 +33,17 @@ function resultLocation(data) {
   const pointLoadApplied = data.results.stiffness;
   return pointLoadApplied;
 }
-/*
-function listResult(data) {
-  // returns an array of stiffness displacement values for the model pass into the function
-  const LoadPoints = loadPointLocation(data);
-  const pointLoadApplied = data.map(model => model.results.stiffness);
-  const direction = ["x", "y", "z"];
-  // map on map on map....
-  const results = pointLoadApplied.map(analysis =>
-    LoadPoints.map(part => direction.map(dir => analysis[part][dir]))
-  );
-  return results;
-}
-*/
+
 const rowHeadingList = resultLocation(target);
 const loadPointKeys = Object.keys(rowHeadingList);
 const loadDirections = ["x", "y", "z"];
+// Get the row headings for
 const rowHeading = rowList(loadPointKeys, loadDirections);
-console.log(rowHeading);
+
+// Get array of values for cm model
+const targetDisData = listResult(target);
+const cmDisData = listResult(cm);
+const baseDisData = listResult(base);
 //
 ////////////////////////////////////////////////////////////
 
@@ -85,7 +79,12 @@ function App() {
       <Footer />
       <CheckValue />
       <ModelDescription />
-      <TestingTable rowHeading={rowHeading} />
+      <TestingTable
+        rowHeading={rowHeading}
+        targetDis={targetDisData}
+        cmDis={cmDisData}
+        base={baseDisData}
+      />
     </div>
   );
 }
