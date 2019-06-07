@@ -29,27 +29,24 @@ function percentToTarget() {
   // Red -> <100%, Green -> >100%
 }
 
-function SuspensionValues({ columnOneData, targetDis, cmDis, base }) {
-  const RowAttribute = props => {
-    return <td>{props.item}</td>;
+function SuspensionValues({ rowDataArray }) {
+  const RowAttribute = row => {
+    const itemData = row;
+    const itemData1 = itemData.map((x, id) => <td key={id}>{x}</td>);
+    return itemData1;
   };
   // creating row by row by map in map, there is a lot of column and this might not be the best way
   // so creating a target array would just have to map it into the tr not nesting map()
   // need to think about its
-  const itemInRow = columnOneData.map((load, index) =>
-    load.map((x, idTwo) => (
-      <tr key={index + idTwo}>
-        <RowAttribute item={x[0]} />
-        <td>{x[1]}</td>
-      </tr>
-    ))
-  );
+  const itemInRow = rowDataArray.map((row, index) => (
+    <tr key={index}>{RowAttribute(row)}</tr>
+  ));
 
   //const rowItems = itemInRow.map((x, index) => <li key={index}>{x}</li>);
   return <>{itemInRow}</>;
 }
 
-function TestingTable({ rowHeading, targetDis, cmDis, baseDis }) {
+function TestingTable({ rowDataArray }) {
   return (
     <table css={tableStyle}>
       <tbody>
@@ -72,12 +69,7 @@ function TestingTable({ rowHeading, targetDis, cmDis, baseDis }) {
           <td> </td>
         </tr>
 
-        <SuspensionValues
-          columnOneData={rowHeading}
-          targetDis={targetDis}
-          cmDis={cmDis}
-          base={baseDis}
-        />
+        <SuspensionValues rowDataArray={rowDataArray} />
       </tbody>
     </table>
   );

@@ -11,7 +11,7 @@ root {
 
 .App {
   display: grid;
-  background: #E7ECEF;
+  background: white;
   grid-template-columns: 10px 30% 1fr 30% 10px;
   grid-template-rows: auto;
   grid-gap: 20px;

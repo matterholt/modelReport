@@ -15,9 +15,21 @@ import ModelDescription from "./components/ModelDescription";
 import { dataValidation } from "./logicFunc/validationModel";
 import { rowList } from "./logicFunc/rowHeading";
 import { listResult } from "./logicFunc/valueDisList";
-
+import { rowArray } from "./logicFunc/tableBuild";
 // data json for results __ use this as MOCK data
 import DataFile from "./resultData/data.json";
+
+/*
+// !!! change to fetch can
+//can't fetchdata at local
+fetch(DataFile)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+  */
 // list to find all model that are in json, use as a dropdown for the future
 const listOfModels = DataFile.map(data => data.modelNum);
 
@@ -39,12 +51,20 @@ const loadPointKeys = Object.keys(rowHeadingList);
 const loadDirections = ["x", "y", "z"];
 // Get the row headings for
 const rowHeading = rowList(loadPointKeys, loadDirections);
-
+const rowHeadFlat = rowHeading.flat(1);
 // Get array of values for cm model
 const targetDisData = listResult(target);
 const cmDisData = listResult(cm);
 const baseDisData = listResult(base);
+//console.log(targetDisData, cmDisData, baseDisData);
 //
+const evalionTable = rowArray(
+  rowHeadFlat,
+  targetDisData,
+  cmDisData,
+  baseDisData
+);
+console.log(evalionTable);
 ////////////////////////////////////////////////////////////
 
 const CheckValue = () => {
@@ -79,12 +99,7 @@ function App() {
       <Footer />
       <CheckValue />
       <ModelDescription />
-      <TestingTable
-        rowHeading={rowHeading}
-        targetDis={targetDisData}
-        cmDis={cmDisData}
-        base={baseDisData}
-      />
+      <TestingTable rowDataArray={evalionTable} />
     </div>
   );
 }
