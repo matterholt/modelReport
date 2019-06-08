@@ -30,19 +30,14 @@ function percentToTarget() {
 }
 
 function SuspensionValues({ rowDataArray }) {
-  const RowAttribute = row => {
-    const itemData = row;
-    const itemData1 = itemData.map((x, id) => <td key={id}>{x}</td>);
-    return itemData1;
-  };
-  // creating row by row by map in map, there is a lot of column and this might not be the best way
-  // so creating a target array would just have to map it into the tr not nesting map()
-  // need to think about its
+  function RowAttribute(row) {
+    const itemData = row.map((x, id) => <td key={id}>{x}</td>);
+    return itemData;
+  }
+
   const itemInRow = rowDataArray.map((row, index) => (
     <tr key={index}>{RowAttribute(row)}</tr>
   ));
-
-  //const rowItems = itemInRow.map((x, index) => <li key={index}>{x}</li>);
   return <>{itemInRow}</>;
 }
 

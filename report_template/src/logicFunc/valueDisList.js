@@ -14,7 +14,6 @@ function listResult(data) {
       dispValues.push(rowOne[property2]);
     }
   }
-  //console.log(string1);
   return dispValues;
 }
 
