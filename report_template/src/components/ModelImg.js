@@ -8,5 +8,11 @@ const modelImage = css`
 `;
 
 export default function ModelImg() {
-  return <img css={modelImage} src="https://via.placeholder.com/300" />;
+  return (
+    <img
+      css={modelImage}
+      src="https://via.placeholder.com/300"
+      alt="model for the report"
+    />
+  );
 }

@@ -34,11 +34,12 @@ const WeightCal = props => {
 };
 
 // pass the weight data from json
-export default function WeightInfo(props) {
-  const weightValues = props.data;
+export default function WeightInfo() {
+  const weightValues = [45, 35, 25]; // need to be updated
   return (
     <div css={weightStyle}>
       <h3>Weight Status (kg)</h3>
+      <p> typed in static</p>
       <WeightCal weightData={weightValues} />
     </div>
   );

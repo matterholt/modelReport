@@ -11,12 +11,12 @@ const head_title = css`
   align-items: center;
 `;
 const head_analysisTitle = css`
-  background: linear-gradient(#e7ecef, #6096ba);
+  background: linear-gradient(#e7ecef, rgba(132, 188, 218, 1));
   box-shadow: 5px 6px 10px grey;
   padding: 1rem 3rem;
 `;
 const head_modelVR = css`
-  background: linear-gradient(#e7ecef, #f96d00);
+  background: linear-gradient(#e7ecef, rgba(132, 188, 218, 1));
   padding: 1rem 3rem;
   box-shadow: 5px 6px 10px grey;
 `;
