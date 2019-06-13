@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
+import PropTypes from "prop-types";
 
 const head_title = css`
   grid-column: 2/5;
@@ -46,5 +47,10 @@ function Header(props) {
     </div>
   );
 }
+
+Header.propTypes = {
+  analysis: PropTypes.string.isRequired,
+  verRev: PropTypes.string.isRequired
+};
 
 export default Header;

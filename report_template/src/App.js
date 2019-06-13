@@ -1,4 +1,7 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 import React from "react";
+import PropTypes from "prop-types";
 ////   Style
 import "./App.css";
 
@@ -65,7 +68,7 @@ const evalionTable = rowArray(
   cmDisData,
   baseDisData
 );
-console.log(evalionTable);
+//console.log(evalionTable);
 ////////////////////////////////////////////////////////////
 
 function App() {
@@ -78,7 +81,6 @@ function App() {
       <ModelImg />
       <Footer />
       <ModelDescription />
-      <Menu modelList={listOfModels} />
       <TestingTable rowDataArray={evalionTable} />
     </div>
   );

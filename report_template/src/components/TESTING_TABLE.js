@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 /*
@@ -69,5 +70,7 @@ function TestingTable({ rowDataArray }) {
     </table>
   );
 }
-
+SuspensionValues.propTypes = {
+  rowDataArray: PropTypes.array
+};
 export default TestingTable;
