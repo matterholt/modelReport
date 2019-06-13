@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 
 ////   Components
+import Menu from "./components/Menu";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ResultTable from "./components/ResultTable";
@@ -67,27 +68,6 @@ const evalionTable = rowArray(
 console.log(evalionTable);
 ////////////////////////////////////////////////////////////
 
-const CheckValue = () => {
-  const findThisNow = DataFile[DataFile.length - 1].modelNum;
-  return (
-    <div style={divStyle}>
-      <h1>Model Name</h1>
-      <p> {findThisNow}</p>
-      {DataFile.map((data, index) => {
-        return <li key={index}> {data.modelNum}</li>;
-      })}
-    </div>
-  );
-};
-
-const divStyle = {
-  color: "blue",
-  gridRow: 9,
-  background: "#f1f175",
-  width: "100vw",
-  height: "50vh"
-};
-
 function App() {
   return (
     <div className="App">
@@ -97,8 +77,8 @@ function App() {
       <AnalysisSummary />
       <ModelImg />
       <Footer />
-      <CheckValue />
       <ModelDescription />
+      <Menu modelList={listOfModels} />
       <TestingTable rowDataArray={evalionTable} />
     </div>
   );

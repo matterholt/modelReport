@@ -42,18 +42,6 @@ function ResultTable() {
     <table css={tableStyle}>
       <tbody>
         <tr>
-          <th colSpan="3">Base model</th>
-          <th colSpan="2">N/A</th>
-          <th colSpan="2">v00r00</th>
-        </tr>
-        <tr>
-          <td colSpan="3">model Description</td>
-          <td colSpan="2"> Improved shape of side member</td>
-          <td colSpan="2">Increased welding ton bracket lower</td>
-        </tr>
-      </tbody>
-      <tbody>
-        <tr>
           <th>Subframe model</th>
           <th> </th>
           <th> target </th>
