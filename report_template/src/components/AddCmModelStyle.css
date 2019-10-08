@@ -1,0 +1,40 @@
+.AddingField {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid black;
+  width: 250px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+input {
+  margin: 5px;
+  font-size: 15px;
+  height: 20px;
+}
+
+label {
+  margin: 10px;
+}
+
+.Button {
+  margin: 5px;
+  width: 45%;
+  height: 2rem;
+  border-radius: 5px;
+
+}
+
+.add:active {
+  background: #06912b;
+  border-radius: 8px;
+  transform: scale(1.2);
+  color: #fff;
+}
+
+.clear:active {
+  background: #910637;
+  color: #fff;
+  border-radius: 8px;
+  transform: scale(1.2)
+}
