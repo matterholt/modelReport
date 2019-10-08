@@ -4,6 +4,26 @@ import { css, jsx } from "@emotion/core";
 /*
 Table with the full stiffness comparison to base and target
 
+const CheckValue = () => {
+  const findThisNow = DataFile[DataFile.length - 1].modelNum;
+  return (
+    <div style={divStyle}>
+      <h1>Model Name</h1>
+      <p> {findThisNow}</p>
+      {DataFile.map((data, index) => {
+        return <li key={index}> {data.modelNum}</li>;
+      })}
+    </div>
+  );
+};
+
+const divStyle = {
+  color: "blue",
+  gridRow: 9,
+  background: "#f1f175",
+  width: "100vw",
+  height: "50vh"
+};
 
 */
 const tableStyle = css`
