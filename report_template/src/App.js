@@ -1,25 +1,8 @@
 import React, { useState } from "react";
 ////   Style
 import "./App.css";
-import PrintableDoc from "./print_doc/PrintableFormat";
+import PrintFEARequest from "./print_doc/PrintableFormat";
 import AddData from "./components/AddCmModel";
-function PrintFEARequest() {
-  const [showPrint, hidePrint] = useState(false);
-  if (showPrint === false) {
-    return (
-      <div>
-        <button onClick={() => hidePrint(true)}>Fea request report</button>
-      </div>
-    );
-  } else {
-    return (
-      <>
-        <button onClick={() => hidePrint(false)}> Hide page</button>
-        <PrintableDoc />
-      </>
-    );
-  }
-}
 
 // create component that
 function DisplayData({ doc_Model }) {
@@ -57,10 +40,10 @@ function App() {
   return (
     <div>
       <h1>FEA request</h1>
-      <PrintFEARequest />
       <AddData addToModelData={addToModelData} />
       <h2>Results added </h2>
       <DisplayData doc_Model={doc_Model} />
+      <PrintFEARequest />
     </div>
   );
 }
