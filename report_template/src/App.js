@@ -21,18 +21,29 @@ function PrintFEARequest() {
   }
 }
 
+// create component that
 function DisplayData({ doc_Model }) {
   const cmInfo = doc_Model.map((x, y) => {
     return (
       <>
-        <li>{x.cmModelName}</li>
-        <li>{x.baseName}</li>
-        <li>{x.modelWeight}</li>
-        <li>{x.description}</li>
+        <ul className="table">
+          <li className="nameResult" key="y + doc_model.length">
+            {x.cmModelName}
+          </li>
+          <li className="nameResult" key="y + doc_model.length">
+            {x.baseName}
+          </li>
+          <li className="nameResult" key="y + doc_model.length">
+            {x.modelWeight}
+          </li>
+          <li className="nameResult" key="y + doc_model.length">
+            {x.description}
+          </li>
+        </ul>
       </>
     );
   });
-  return <ul>{cmInfo}</ul>;
+  return <div>{cmInfo}</div>;
 }
 
 function App() {
@@ -40,16 +51,15 @@ function App() {
 
   function addToModelData(modelData) {
     console.log("Model has been added");
-    let tryME = [...doc_Model, modelData];
-    updateDocModel(tryME);
+    let addData = [...doc_Model, modelData];
+    updateDocModel(addData);
   }
-
   return (
     <div>
       <h1>FEA request</h1>
       <PrintFEARequest />
       <AddData addToModelData={addToModelData} />
-      <h1>find it</h1>
+      <h2>Results added </h2>
       <DisplayData doc_Model={doc_Model} />
     </div>
   );

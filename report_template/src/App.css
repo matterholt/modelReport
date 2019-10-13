@@ -8,6 +8,18 @@ root {
 
 }
 
+.table {
+  display: flex;
+  border-bottom: 2px solid rebeccapurple;
+}
+
+.nameResult {
+  background: #c9b0e2;
+  padding: 15px;
+  list-style: none;
+
+}
+
 
 .App {
   display: grid;
@@ -22,5 +34,4 @@ root {
 .AddingField {
   display: flex;
   flex-flow: column;
-  backgroung: red;
 }

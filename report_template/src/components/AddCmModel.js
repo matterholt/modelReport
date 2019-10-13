@@ -6,12 +6,6 @@ function AddData({ addToModelData }) {
   const [baseModel, setBaseModel] = useState("");
   const [modelWeight, setModelWeight] = useState("");
   const [modelDescription, setModelDescription] = useState("");
-  const [cmModelObj, setCmModelObj] = useState({
-    cmName: "",
-    baseName: "",
-    modelWeight: "",
-    description: ""
-  });
 
   function addDataObj() {
     const cmModelData = {
@@ -20,11 +14,8 @@ function AddData({ addToModelData }) {
       modelWeight: modelWeight,
       description: modelDescription
     };
-    setCmModelObj(cmModelData);
+    addToModelData(cmModelData);
   }
-  useEffect(() => {
-    addToModelData(cmModelObj);
-  }, [cmModelObj]);
 
   function clear() {
     setCmName("");
