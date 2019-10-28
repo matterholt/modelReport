@@ -1,5 +1,6 @@
 import React from "react";
-import FEARequest from "./components/FeaRequest";
+import LoginMain from "./loginPage/Login";
+import FEARequest from "./requestPage/FeaRequest.js";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         {" "}
         FEA Request{" "}
       </h1>
+      <LoginMain />
 
       <FEARequest />
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ModelInfo from "./request/ModelInfo";
-import ModelChange from "./request/ModelChange";
-import ModelAnalysis from "./request/ModelAnalysis";
+import ModelInfo from "./component/ModelInfo";
+import ModelChange from "./component/ModelChange";
+import ModelAnalysis from "./component/ModelAnalysis";
 
 function ButtonProcess() {
   return (

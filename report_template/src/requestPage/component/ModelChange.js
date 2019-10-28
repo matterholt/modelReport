@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 function ModelChange() {
+  const [modelImg, setModelImg] = useState();
   const [changesall, addChages] = useState([]);
   const [change, updateChange] = useState("test");
 
@@ -12,9 +13,15 @@ function ModelChange() {
   return (
     <form className=" w-full max-w-lg bg-gray-300 flex flex-col rounded">
       <h2 className="text-center font-bold text-lg m-5 "> Model Changes</h2>
+
       <label className="flex flex-col my-2 mx-10 text-md text-blue-800 font-semibold">
         Model Image:
-        <input className="shadow my-2 p-2" />
+        <input
+          onChange={e => {
+            setModelImg(e.target.value);
+          }}
+          type="file"
+        />
       </label>
 
       <div className="flex items-center">
