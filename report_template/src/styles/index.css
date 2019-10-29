@@ -1,0 +1,7 @@
+@tailwind base;
+
+@tailwind components;
+/*component import is where you would add any of your custom component classes*/
+
+@tailwind utilities;
+/*utilities import is where you would add any custom utilities*/
