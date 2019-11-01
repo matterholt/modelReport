@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import ModelInfo from "./pages/ModelInfo";
-import ModelChange from "./pages/ModelChange";
-import ModelAnalysis from "./pages/ModelAnalysis";
+
+import Header from "../comps_common/Header";
+import SideNav from "../SideNavComp/SideNav";
+import ModelInfo from "./ModelInfo";
+import ModelChange from "./ModelChange";
+import ModelAnalysis from "./ModelAnalysis";
 
 const FEARequest = () => {
   const [modelInfo, setModelInfo] = useState({
@@ -19,10 +22,14 @@ const FEARequest = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-around">
-      <ModelInfo modelIfoCollect={modelIfoCollect} />
-      <ModelChange />
-      <ModelAnalysis />
+    <div>
+      <Header titleHeader="Fea Login" />
+      <SideNav />
+      <div className="w-screen h-screen flex justify-around">
+        <ModelInfo modelIfoCollect={modelIfoCollect} />
+        <ModelChange />
+        <ModelAnalysis />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,6 @@
 import React from "react";
+import Header from "../comps_common/Header";
+import SideNav from "../SideNavComp/SideNav";
 
 const QueuedItem = () => {
   return (
@@ -18,9 +20,16 @@ const QueuedItem = () => {
 
 export default function BaseQueue() {
   return (
-    <div className="flex flex-col w-full">
-      <QueuedItem />
-      <QueuedItem />
+    <div>
+      <Header titleHeader="Basic Queue" />
+      <SideNav />
+      <div className="flex flex-col w-full">
+        <QueuedItem />
+        <QueuedItem />
+        <QueuedItem />
+
+        <QueuedItem />
+      </div>
     </div>
   );
 }

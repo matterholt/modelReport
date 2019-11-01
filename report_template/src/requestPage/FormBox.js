@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import TitleForm from "./TitleForm";
-import LabelInput from "./LabelInput";
-import LabelTextField from "./LabelTextField";
-import StepButton from "./StepButton";
+import TitleForm from "../comps_common/TitleForm";
+import LabelInput from "../comps_common/LabelInput";
+import LabelTextField from "../comps_common/LabelTextField";
+import StepButton from "../comps_common/StepButton";
 
 const FormBox = () => {
   const [baseModel, setBaseModel] = useState("");

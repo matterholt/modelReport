@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Header from "./Header";
+import Header from "../comps_common/TitleForm";
 
 const NaviLink = ({ linkName, toPath }) => {
   return (
