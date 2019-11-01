@@ -3,33 +3,6 @@ import ModelInfo from "./pages/ModelInfo";
 import ModelChange from "./pages/ModelChange";
 import ModelAnalysis from "./pages/ModelAnalysis";
 
-function ButtonProcess() {
-  return (
-    <div className="flex">
-      <button className="w-6/12 border p-4 bg-blue-500 text-white ">
-        {" "}
-        Back{" "}
-      </button>
-      <button className="w-6/12 border p-4 bg-blue-700 text-white ">
-        {" "}
-        Next{" "}
-      </button>
-    </div>
-  );
-}
-
-function Request() {
-  const [pgNum, setPgNum] = useState(1);
-  /*
-  if (pgNum === 1) {
-    return <ModelInfo />;
-  } else if (pgNum === 2) {
-    return <ModelChange />;
-  }
-  */
-  return <div className="flex w-screen justify-around"></div>;
-}
-
 const FEARequest = () => {
   const [modelInfo, setModelInfo] = useState({
     baseName: "",
@@ -50,14 +23,6 @@ const FEARequest = () => {
       <ModelInfo modelIfoCollect={modelIfoCollect} />
       <ModelChange />
       <ModelAnalysis />
-      <button
-        onClick={() => {
-          console.log(modelInfo);
-        }}
-      >
-        {" "}
-        console
-      </button>
     </div>
   );
 };

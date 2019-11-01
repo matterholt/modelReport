@@ -4,18 +4,19 @@ import LabelInput from "./LabelInput";
 import LabelTextField from "./LabelTextField";
 import StepButton from "./StepButton";
 
-const FormBox = ({ getData }) => {
-  const [baseModel, setBaseModel] = useState({ base_Name: "" });
+const FormBox = () => {
+  const [baseModel, setBaseModel] = useState("");
   const [cmModelName, setCmModelName] = useState("");
   const [reasonModel, setReasonModel] = useState("");
 
-  useEffect(() => {
-    console.log(baseModel);
-  }, [baseModel]);
-
-  function update_Value(e) {
-    // how to update the object with set up below patge
-    setBaseModel({ [e.target.name]: e.target.value });
+  function getDataTest(e) {
+    e.preventDefault();
+    let item = {
+      baseName: baseModel,
+      cmName: cmModelName,
+      purpose: reasonModel
+    };
+    console.log(item);
   }
   return (
     <form className="max-full w-xl bg-white flex flex-col rounded">
@@ -24,7 +25,7 @@ const FormBox = ({ getData }) => {
         labelName="base_Name"
         labelTitle="Base Model Name"
         labelValue={baseModel.base_Name}
-        updateValue={update_Value}
+        updateValue={setBaseModel}
       />
 
       <LabelInput
@@ -39,8 +40,8 @@ const FormBox = ({ getData }) => {
         paceHolder="Reason for Request"
       />
       <div>
-        <StepButton compileModelInfo={getData} />
-        <StepButton compileModelInfo={getData} />
+        <StepButton stepProcess="Back" compileModelInfo={getDataTest} />
+        <StepButton stepProcess="Next" compileModelInfo={getDataTest} />
       </div>
     </form>
   );

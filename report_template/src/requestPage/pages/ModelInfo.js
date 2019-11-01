@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FormBox from "../component/FormBox";
+import FormBox from "../request_comp/FormBox";
 
 function ModelInfo({ modelIfoCollect }) {
   const [modelInfoCollection, updateModelInfoCollection] = useState({});
@@ -11,9 +11,9 @@ function ModelInfo({ modelIfoCollect }) {
   };
 
   return (
-    <>
+    <form>
       <FormBox getData={compileModelInfo} />
-    </>
+    </form>
   );
 }
 
