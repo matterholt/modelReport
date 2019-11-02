@@ -6,7 +6,7 @@ import ModelInfo from "./formPage/ModelInfo";
 import ModelChange from "./formPage/ModelChange";
 import ModelAnalysis from "./formPage/ModelAnalysis";
 
-const FEARequest = () => {
+const FeaRequest = () => {
   const [modelInfo, setModelInfo] = useState({
     baseName: "",
     cmVersion: "",
@@ -34,4 +34,4 @@ const FEARequest = () => {
   );
 };
 
-export default FEARequest;
+export default FeaRequest;
