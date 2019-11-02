@@ -13,9 +13,8 @@ const NaviLink = ({ linkName, toPath }) => {
 
 function SideNav() {
   return (
-    <div className="font-sans bg-gray-100 flex flex-col items-center justify-start">
-      <Header titleHeader="FEA Request Tracker" />
-      <ul className="rounded bg-white shadow flex flex-col w-64 m-2">
+    <div className="font-sans flex flex-col items-center justify-start ">
+      <ul className="rounded bg-white shadow flex flex-col w-64 m-2 h-full">
         <NaviLink linkName="Login" toPath="/" />
         <NaviLink linkName="Fea Request" toPath="/request" />
         <NaviLink linkName="Basic Queue" toPath="/baseQueue" />
