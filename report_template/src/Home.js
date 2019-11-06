@@ -4,7 +4,7 @@ import SideNav from "./SideNavComp/SideNav";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col bg-gray-500 h-screen">
       <Header titleHeader="Home" />
       <SideNav />
     </div>

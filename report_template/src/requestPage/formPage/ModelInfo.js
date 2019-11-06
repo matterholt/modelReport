@@ -5,44 +5,48 @@ import LabelTextField from "../../comps_common/LabelTextField";
 import StepButton from "../../comps_common/StepButton";
 
 const ModelInfo = () => {
-  const [baseModel, setBaseModel] = useState("");
-  const [cmModelName, setCmModelName] = useState("");
-  const [reasonModel, setReasonModel] = useState("");
-  // change to object like the code pen
-  function getDataTest(e) {
+  const [formValues, updateFormValues] = useState({
+    baseModelVerion: "",
+    reqeustVersion: "",
+    modelPurpose: ""
+  });
+
+  function updateValues(e) {
     e.preventDefault();
-    let item = {
-      baseName: baseModel,
-      cmName: cmModelName,
-      purpose: reasonModel
-    };
-    console.log(item);
+    updateFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value
+    });
   }
+
   return (
-    <div className="max-full w-xl bg-white flex flex-col rounded">
+    <div className="m-2 bg-white flex flex-col rounded">
       <TitleForm formTitle="Model Info" />
       <LabelInput
-        labelName="base_Name"
+        labelName="baseName"
         labelTitle="Base Model Name"
-        labelValue={baseModel.base_Name}
-        updateValue={setBaseModel}
+        labelValue={formValues.baseModelVerion}
+        updateValue={updateValues}
       />
 
       <LabelInput
         labelTitle="CM Model Name"
         labelName="cm_Name"
-        labelValue={cmModelName}
-        updateValue={setCmModelName}
+        labelValue={formValues.reqeustVersion}
+        updateValue={updateValues}
       />
       <LabelTextField
         labelTitle="Purpose"
-        labelValue={reasonModel}
-        updateValue={setReasonModel}
-        paceHolder="Reason for Request"
+        labelName="modelPurpose"
+        labelValue={formValues.modelPurpose}
+        updateValue={updateValues}
       />
       <div>
-        <StepButton stepProcess="Back" compileModelInfo={getDataTest} />
-        <StepButton stepProcess="Next" compileModelInfo={getDataTest} />
+        <StepButton
+          stepProcess="Back"
+          compileModelInfo={console.log(formValues)}
+        />
+        <StepButton stepProcess="Next" compileModelInfo={updateValues} />
       </div>
     </div>
   );

@@ -23,12 +23,14 @@ const FEARequest = () => {
 
   return (
     <div>
-      <Header titleHeader="Fea Login" />
-      <SideNav />
-      <div className="flex flex-col bg-gray-500 h-screen  ">
-        <ModelInfo modelIfoCollect={modelIfoCollect} />
-        <ModelChange />
-        <ModelAnalysis />
+      <Header titleHeader="Fea Request" />
+      <div className="flex flex-row bg-gray-500 min-h-screen  ">
+        <SideNav />
+        <div className="flex flex-row ">
+          <ModelInfo modelIfoCollect={modelIfoCollect} />
+          <ModelChange />
+          <ModelAnalysis />
+        </div>
       </div>
     </div>
   );
