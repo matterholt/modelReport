@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../comps_common/Header";
+import Header from "../component/Header";
 import SideNav from "../SideNavComp/SideNav";
 
 const QueuedItem = () => {

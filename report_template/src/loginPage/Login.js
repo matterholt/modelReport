@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import Header from "../comps_common/Header";
+import Header from "../component/Header";
 import SideNav from "../SideNavComp/SideNav";
-import TitleForm from "../comps_common/TitleForm";
-import LabelInput from "../comps_common/LabelInput";
-import StepButton from "../comps_common/StepButton";
+import TitleForm from "../component/TitleForm";
+import LabelInput from "../component/LabelInput";
+import StepButton from "../component/StepButton";
 
 const FormS = () => {
   return (

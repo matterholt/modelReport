@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import TitleForm from "../../comps_common/TitleForm";
-import LabelInput from "../../comps_common/LabelInput";
-import LabelTextField from "../../comps_common/LabelTextField";
-import StepButton from "../../comps_common/StepButton";
+import React, { useState } from "react";
+import TitleForm from "../component/TitleForm";
+import LabelInput from "../component/LabelInput";
+import LabelTextField from "../component/LabelTextField";
 
 const ModelInfo = () => {
   const [formValues, updateFormValues] = useState({
@@ -20,10 +19,10 @@ const ModelInfo = () => {
   }
 
   return (
-    <div className="m-2 bg-white flex flex-col rounded">
+    <div>
       <TitleForm formTitle="Model Info" />
       <LabelInput
-        labelName="baseName"
+        labelName="baseModelVerion"
         labelTitle="Base Model Name"
         labelValue={formValues.baseModelVerion}
         updateValue={updateValues}
@@ -31,7 +30,7 @@ const ModelInfo = () => {
 
       <LabelInput
         labelTitle="CM Model Name"
-        labelName="cm_Name"
+        labelName="reqeustVersion"
         labelValue={formValues.reqeustVersion}
         updateValue={updateValues}
       />
@@ -41,13 +40,6 @@ const ModelInfo = () => {
         labelValue={formValues.modelPurpose}
         updateValue={updateValues}
       />
-      <div>
-        <StepButton
-          stepProcess="Back"
-          compileModelInfo={console.log(formValues)}
-        />
-        <StepButton stepProcess="Next" compileModelInfo={updateValues} />
-      </div>
     </div>
   );
 };

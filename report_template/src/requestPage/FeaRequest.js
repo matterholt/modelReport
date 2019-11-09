@@ -1,39 +1,40 @@
 import React, { useState } from "react";
 
-import Header from "../comps_common/Header";
-import SideNav from "../SideNavComp/SideNav";
-import ModelInfo from "./formPage/ModelInfo";
-import ModelChange from "./formPage/ModelChange";
-import ModelAnalysis from "./formPage/ModelAnalysis";
+import Header from "../component/Header";
 
-const FEARequest = () => {
-  const [modelInfo, setModelInfo] = useState({
-    baseName: "",
-    cmVersion: "",
-    cmPurpose: ""
+import ModelInfo from "./ModelInfo";
+import ModelChange from "./ModelChange";
+import ModelImage from "./ModelImage";
+import ModelAnalysis from "./ModelAnalysis";
+
+// since it is progressive may need to add redux, but useContext could work as well.
+
+export default function FeaRequest() {
+  const [requestData, updateRequestDate] = useState({
+    baseModelName: "",
+    requestModelName: "",
+    requestModelPurpose: "",
+    requestModelChanges: "",
+    requestModelImage: "",
+    requesModelAnalysis: [""],
+    requestModelFileLoc: ""
   });
 
-  const modelIfoCollect = (base, cm, reason) => {
-    setModelInfo({
-      baseName: base,
-      cmVersion: cm,
-      cmPurpose: reason
+  function compileFormInputs(e) {
+    e.preventDefault();
+    updateRequestDate({
+      ...requestData,
+      [e.target.name]: e.target.value
     });
-  };
+  }
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <Header titleHeader="Fea Request" />
-      <div className="flex flex-row bg-gray-500 min-h-screen  ">
-        <SideNav />
-        <div className="flex flex-row ">
-          <ModelInfo modelIfoCollect={modelIfoCollect} />
-          <ModelChange />
-          <ModelAnalysis />
-        </div>
-      </div>
+      <ModelInfo />
+      <ModelImage />
+      <ModelChange />
+      <ModelAnalysis />
     </div>
   );
-};
-
-export default FEARequest;
+}
