@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import LabelFor from "./LabelFor";
 
-export default function ImageInput({ previewImagefun }) {
+export default function ImageInput({ labelTitle, labelName, updateValue }) {
+  const [tempImage, updateTempImage] = useState("null");
+
+  function handleChange(e) {
+    updateTempImage(URL.createObjectURL(e.target.files[0]));
+    updateValue(e);
+  }
   return (
     <div>
+      <LabelFor labelFor={labelName} labelTitle={labelTitle} />
       <input
-        className=" m-5 p-5 border-1 "
-        onChange={previewImagefun}
+        className="shadow m-2 p-2 bg-white"
+        onChange={handleChange}
         type="file"
-        id="image_uploads"
-        name="image_uploads"
+        name={labelName}
         accept=".jpg, .jpeg, .png"
-        multiple
       />
+      <img width="550" src={tempImage} alt="request model" />
     </div>
   );
 }

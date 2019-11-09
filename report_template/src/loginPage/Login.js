@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Header from "../component/Header";
-import SideNav from "../SideNavComp/SideNav";
+import SideNav from "../component/SideNav";
 import TitleForm from "../component/TitleForm";
 import LabelInput from "../component/LabelInput";
 import StepButton from "../component/StepButton";

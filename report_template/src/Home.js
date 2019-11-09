@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./component/Header";
-import SideNav from "./SideNavComp/SideNav";
+import SideNav from "./component/SideNav";
 
 const Home = () => {
   return (
