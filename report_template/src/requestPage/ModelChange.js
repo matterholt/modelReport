@@ -93,9 +93,7 @@ export default function ModelChange() {
   }
 
   return (
-    <div className=" w-full max-w-lg m-4 bg-white flex flex-col rounded items-center ">
-      <TitleForm formTitle="Model Changes" />
-
+    <div className=" ">
       <div className="flex flex-col items-center w-full">
         <AddModelFeatures
           change={itemToChange}

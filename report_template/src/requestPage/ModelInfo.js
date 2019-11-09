@@ -20,7 +20,6 @@ const ModelInfo = () => {
 
   return (
     <div>
-      <TitleForm formTitle="Model Info" />
       <LabelInput
         labelName="baseModelVerion"
         labelTitle="Base Model Name"

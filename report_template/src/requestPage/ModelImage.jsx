@@ -23,7 +23,6 @@ export default function UploadImg() {
 
   return (
     <div className=" w-full max-w-lg p-4 m-4 bg-white flex flex-col rounded items-center ">
-      <TitleForm formTitle="Add image" />
       <ImageInput previewImagefun={previewImagefun} />
       <ImageDisplay previewImg={previewImg} />
     </div>

@@ -42,8 +42,7 @@ const FileLocation = () => {
 export default function ModalAnalysis() {
   const analysisTypes = ["Stiffness", "Static", "Dura", "NHV", "Other"];
   return (
-    <div className=" w-full max-w-lg p-4 m-4 bg-white flex flex-col rounded items-center shadow-lg   ">
-      <TitleForm formTitle="Analysis Performed" />
+    <div>
       <FileLocation />
       <div>
         <h2 className="text-center border-b-2 border-gray-600 p-2 mb-2 h-auto">
