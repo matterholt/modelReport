@@ -3,7 +3,7 @@ import TitleForm from "../component/TitleForm";
 
 const AddModelFeatures = ({ change, updateChange, onKeyEnter }) => {
   return (
-    <label>
+    <label className="flex flex-col m-4 w-3/4  text-md text-blue-800 font-semibold">
       Model changes:
       <input
         value={change}
@@ -93,7 +93,9 @@ export default function ModelChange() {
   }
 
   return (
-    <div className=" ">
+    <div className=" absolute bg-white w-screen border  m-4 bg-white flex flex-col rounded items-center ">
+      <TitleForm formTitle="Model Changes" />
+
       <div className="flex flex-col items-center w-full">
         <AddModelFeatures
           change={itemToChange}
