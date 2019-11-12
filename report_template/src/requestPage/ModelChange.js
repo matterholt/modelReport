@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import TitleForm from "../component/TitleForm";
 
+import AddListButton from "../component/AddListButton";
+import RemoveItemButton from "../component/RemoveItemButton";
+import ClearListButton from "../component/ClearListButton";
+
 const AddModelFeatures = ({ change, updateChange, onKeyEnter }) => {
   return (
     <label className="flex flex-col m-4 w-3/4  text-md text-blue-800 font-semibold">
@@ -29,40 +33,6 @@ const ChangeList = ({ changesall, removedItem }) => {
         );
       })}
     </ul>
-  );
-};
-const AddListButton = ({ addItemChange }) => {
-  return (
-    <button
-      onClick={addItemChange}
-      className=" w-1/3  text-white p-2 rounded bg-blue-700"
-    >
-      {" "}
-      ADD
-    </button>
-  );
-};
-const ClearListButton = ({ clearItemsChange }) => {
-  return (
-    <button
-      onClick={clearItemsChange}
-      className="  w-1/3 text-black px-2 rounded bg-red-200 "
-    >
-      {" "}
-      CLEAR
-    </button>
-  );
-};
-
-const RemoveItemButton = ({ removeItem }) => {
-  return (
-    <button
-      onClick={removeItem}
-      className=" text-white px-2 mr-4 rounded bg-red-700 "
-    >
-      {" "}
-      X{" "}
-    </button>
   );
 };
 
