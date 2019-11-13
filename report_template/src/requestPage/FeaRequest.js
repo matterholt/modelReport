@@ -17,12 +17,12 @@ export default function FeaRequest() {
     baseModelName: "",
     requestModelName: "",
     requestModelPurpose: "",
-    requestModelChanges: ["rear beam update", "upgauge sidember"],
+    requestModelChanges: [],
     requestModelImage: "",
     requestModelAnalysis: [""],
     requestModelFileLoc: ""
   });
-  const [inputForChange, addInputForChange] = useState(["one", "two"]);
+  const [inputForChange, addInputForChange] = useState([]);
 
   useEffect(() => console.log(requestData));
   useEffect(() => console.log(inputForChange));
@@ -33,6 +33,15 @@ export default function FeaRequest() {
       [e.target.name]: e.target.value
     });
   }
+  useEffect(() => {
+    function changeList() {
+      updateRequestDate({
+        ...requestData,
+        requestModelChanges: inputForChange
+      });
+    }
+    changeList();
+  }, [inputForChange]);
 
   return (
     <div className="flex flex-row min-h-screen">
