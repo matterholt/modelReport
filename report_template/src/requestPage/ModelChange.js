@@ -8,11 +8,12 @@ const NumberOfInputs = ({
   updateListItem
 }) => {
   const [localValue, setLocalValue] = useState();
-  const [updateModal, swithcUpdateModal] = useState(false);
+  const [updateModal, switchUpdateModal] = useState(false);
 
   useEffect(() => {
     setLocalValue(newItem);
   }, []);
+
   function handleUpdate(e) {
     setLocalValue(e.target.value);
     updateListItem(newItemID, localValue);
@@ -28,7 +29,7 @@ const NumberOfInputs = ({
         />
         <button
           className="p-2 bg-blue-100 shadow hover:bg-blue-300 rounded"
-          onClick={() => swithcUpdateModal(false)}
+          onClick={() => switchUpdateModal(false)}
         >
           UPDATE
         </button>
@@ -36,13 +37,13 @@ const NumberOfInputs = ({
     );
   } else {
     return (
-      <li>
+      <li key={newItemID}>
         <div className="rounded items-center shadow m-2 p-2 bg-gray-100 flex justify-between">
           {localValue}
           <div>
             <button
               className="p-2 bg-blue-100 shadow hover:bg-blue-300 rounded"
-              onClick={() => swithcUpdateModal(true)}
+              onClick={() => switchUpdateModal(true)}
             >
               UPDATE{" "}
             </button>
@@ -72,7 +73,6 @@ const AddAnotherInput = ({ inputForChange, addInputForChange }) => {
       }
     });
     addInputForChange(updateList);
-    console.log("add a pop up to let user know that has been updated??");
   }
   function removeIt(idlist) {
     let updateList = inputForChange.filter((elm, index) => {

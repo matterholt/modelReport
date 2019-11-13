@@ -24,9 +24,6 @@ export default function FeaRequest() {
   });
   const [inputForChange, addInputForChange] = useState([]);
 
-  useEffect(() => console.log(requestData));
-  useEffect(() => console.log(inputForChange));
-
   function compileFormInputs(e) {
     updateRequestDate({
       ...requestData,
