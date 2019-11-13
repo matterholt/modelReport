@@ -3,5 +3,13 @@
 @tailwind components;
 /*component import is where you would add any of your custom component classes*/
 
+.btn-blue {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.card-test {
+    @apply w-full shadow max-w-lg m-4 bg-white flex flex-col rounded items-center
+}
+
 @tailwind utilities;
 /*utilities import is where you would add any custom utilities*/
