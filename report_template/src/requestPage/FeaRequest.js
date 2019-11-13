@@ -1,34 +1,10 @@
 import React, { useState } from "react";
-import ModelInfo from "./component/ModelInfo";
-import ModelChange from "./component/ModelChange";
-import ModelAnalysis from "./component/ModelAnalysis";
 
-function ButtonProcess() {
-  return (
-    <div className="flex">
-      <button className="w-6/12 border p-4 bg-blue-500 text-white ">
-        {" "}
-        Back{" "}
-      </button>
-      <button className="w-6/12 border p-4 bg-blue-700 text-white ">
-        {" "}
-        Next{" "}
-      </button>
-    </div>
-  );
-}
-
-function Request() {
-  const [pgNum, setPgNum] = useState(1);
-  /*
-  if (pgNum === 1) {
-    return <ModelInfo />;
-  } else if (pgNum === 2) {
-    return <ModelChange />;
-  }
-  */
-  return <div className="flex w-screen justify-around"></div>;
-}
+import Header from "../comps_common/Header";
+import SideNav from "../SideNavComp/SideNav";
+import ModelInfo from "./formPage/ModelInfo";
+import ModelChange from "./formPage/ModelChange";
+import ModelAnalysis from "./formPage/ModelAnalysis";
 
 const FEARequest = () => {
   const [modelInfo, setModelInfo] = useState({
@@ -46,18 +22,16 @@ const FEARequest = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex justify-around">
-      <ModelInfo modelIfoCollect={modelIfoCollect} />
-      <ModelChange />
-      <ModelAnalysis />
-      <button
-        onClick={() => {
-          console.log(modelInfo);
-        }}
-      >
-        {" "}
-        console
-      </button>
+    <div>
+      <Header titleHeader="Fea Request" />
+      <div className="flex flex-row bg-gray-500 min-h-screen  ">
+        <SideNav />
+        <div className="flex flex-row ">
+          <ModelInfo modelIfoCollect={modelIfoCollect} />
+          <ModelChange />
+          <ModelAnalysis />
+        </div>
+      </div>
     </div>
   );
 };
