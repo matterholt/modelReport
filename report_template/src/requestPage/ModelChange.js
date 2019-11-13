@@ -1,60 +1,90 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TitleForm from "../component/TitleForm";
 
-import AddListButton from "../component/AddListButton";
-import RemoveItemButton from "../component/RemoveItemButton";
-import ClearListButton from "../component/ClearListButton";
+const NumberOfInputs = ({
+  newItem,
+  newItemID,
+  deleteListItem,
+  updateListItem
+}) => {
+  const [localValue, setLocalValue] = useState();
+  const [updateModal, swithcUpdateModal] = useState(false);
 
-const AddModelFeatures = ({ change, updateChange, onKeyEnter }) => {
-  return (
-    <label className="flex flex-col m-4 w-3/4  text-md text-blue-800 font-semibold">
-      Model changes:
-      <input
-        value={change}
-        onChange={e => updateChange(e.target.value)}
-        onKeyPress={onKeyEnter}
-        className="shadow my-2 p-2 "
-      />
-    </label>
-  );
+  useEffect(() => {
+    setLocalValue(newItem);
+  }, []);
+  function handleUpdate(e) {
+    setLocalValue(e.target.value);
+    updateListItem(newItemID, localValue);
+  }
+
+  if (updateModal === true) {
+    return (
+      <li key={newItemID}>
+        <input
+          className="shadow m-2 p-2 bg-white"
+          value={localValue}
+          onChange={handleUpdate}
+        />
+        <button
+          className="p-2 bg-blue-100 shadow hover:bg-blue-300 rounded"
+          onClick={() => swithcUpdateModal(false)}
+        >
+          UPDATE
+        </button>
+      </li>
+    );
+  } else {
+    return (
+      <li>
+        <div className="rounded items-center shadow m-2 p-2 bg-gray-100 flex justify-between">
+          {localValue}
+          <div>
+            <button
+              className="p-2 bg-blue-100 shadow hover:bg-blue-300 rounded"
+              onClick={() => swithcUpdateModal(true)}
+            >
+              UPDATE{" "}
+            </button>
+            <button
+              className="p-2 bg-red-300 text-white shadow hover:bg-red-100 hover:text-black rounded"
+              onClick={() => deleteListItem(newItemID)}
+            >
+              {" "}
+              REMOVE
+            </button>
+          </div>
+        </div>
+      </li>
+    );
+  }
 };
-const ChangeList = ({ changesall, removedItem }) => {
-  return (
-    <ul>
-      {changesall.map((item, k) => {
-        return (
-          <li
-            className="break-normal border-b p-2 my-2 border-solid flex items-center"
-            key={k}
-          >
-            <RemoveItemButton removeItem={() => removedItem(k)} />
-            {item}
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
 
-export default function ModelChange() {
-  const [itemToChange, setItemToChange] = useState("");
-  const [allChange, updateAllChange] = useState(["1", "2"]);
+const AddAnotherInput = ({ inputForChange, addInputForChange }) => {
+  const [changeItem, setChangeItem] = useState("");
 
+  function updateItem(idlist, updateItem) {
+    let updateList = inputForChange.map((change, id) => {
+      if (id === idlist) {
+        return updateItem;
+      } else {
+        return change;
+      }
+    });
+    addInputForChange(updateList);
+    console.log("add a pop up to let user know that has been updated??");
+  }
   function removeIt(idlist) {
-    console.log("remove item");
-    let test = allChange.filter((elm, index) => {
+    let updateList = inputForChange.filter((elm, index) => {
       return index !== idlist;
     });
-    updateAllChange(test);
+    addInputForChange(updateList);
   }
   function addItemChange() {
-    if (itemToChange !== "") {
-      updateAllChange([...allChange, itemToChange]);
-      setItemToChange("");
+    if (changeItem !== "") {
+      addInputForChange([...inputForChange, changeItem]);
+      setChangeItem("");
     }
-  }
-  function clearList() {
-    updateAllChange([]);
   }
   function keyPressed(e) {
     if (e.key === "Enter") {
@@ -63,26 +93,49 @@ export default function ModelChange() {
   }
 
   return (
-    <div className=" absolute bg-white w-screen border  m-4 bg-white flex flex-col rounded items-center ">
-      <TitleForm formTitle="Model Changes" />
-
-      <div className="flex flex-col items-center w-full">
-        <AddModelFeatures
-          change={itemToChange}
-          updateChange={setItemToChange}
-          onKeyEnter={keyPressed}
-        />
-        <div className="flex flex-row justify-around w-3/4">
-          <AddListButton addItemChange={addItemChange} />
-          <ClearListButton clearItemsChange={clearList} />
-        </div>
-      </div>
-      <div className="w-full px-5">
-        <h2 className="text-center border-b-2 border-gray-600 p-2 mb-2 h-auto">
-          Changes To Model
-        </h2>
-        <ChangeList changesall={allChange} removedItem={removeIt} />
-      </div>
+    <div>
+      <ul>
+        {inputForChange.map((itemUpdate, itemID) => {
+          return (
+            <NumberOfInputs
+              newItem={itemUpdate}
+              newItemID={itemID}
+              deleteListItem={removeIt}
+              updateListItem={updateItem}
+            />
+          );
+        })}
+      </ul>
+      <label
+        htmlFor="modelChanges"
+        className="flex flex-col mx-2 mt-2 w-3/4 text-md text-blue-800 font-semibold"
+      >
+        Add changes made to model
+      </label>
+      <input
+        value={changeItem}
+        onChange={e => setChangeItem(e.target.value)}
+        onKeyPress={keyPressed}
+        name="modelChanges"
+        className="shadow m-2 p-2 bg-white"
+      />
+      <button
+        onClick={addItemChange}
+        className="shadow border border-solid  rounded bg-white border-blue p-2 hover:bg-blue-100"
+      >
+        ADD
+      </button>
     </div>
+  );
+};
+
+export default function ChangeAdditions({ inputForChange, addInputForChange }) {
+  return (
+    <fieldset className="flex flex-col">
+      <AddAnotherInput
+        inputForChange={inputForChange}
+        addInputForChange={addInputForChange}
+      />
+    </fieldset>
   );
 }
