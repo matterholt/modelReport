@@ -22,7 +22,7 @@ export default function FeaRequest() {
     requestModelAnalysis: [""],
     requestModelFileLoc: ""
   });
-  const [inputForChange, addinputForChange] = useState(["one", "two"]);
+  const [inputForChange, addInputForChange] = useState(["one", "two"]);
 
   useEffect(() => console.log(requestData));
   useEffect(() => console.log(inputForChange));
@@ -75,7 +75,7 @@ export default function FeaRequest() {
 
         <ChangeAdditions
           inputForChange={inputForChange}
-          addinputForChange={addinputForChange}
+          addInputForChange={addInputForChange}
         />
       </div>
     </div>
